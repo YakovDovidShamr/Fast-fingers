@@ -2,13 +2,20 @@ body {
     background-color: rgb(171, 186, 128);
 }
 
-#the-main-title {
+/* .main-div {
+    border: solid;
+    height: 300px;
+    width: 300px;
+} */
+
+.main-div > h1 {
     text-align: center;
     font-family: 'Bungee Spice', cursive;
-    font-size: xxx-large;   
+    font-size: xxx-large;
+    display: block;   
 }
 
-#random-words {
+.main-div > #random-words {
     padding: 0%;
     height: 170px;
     width: 600px;
@@ -23,7 +30,7 @@ body {
     text-align: center;
 }
 
-#word-input {
+.main-div > #word-input {
     height: 40px;
     width: 600px;
     border: solid;
