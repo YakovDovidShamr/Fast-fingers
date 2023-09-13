@@ -1,0 +1,43 @@
+#the-main-title {
+    text-align: center;
+    text-decoration: underline;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xxx-large;
+        
+    
+}
+
+#random-words {
+    padding: 0%;
+    height: 170px;
+    width: 600px;
+    position: relative;
+    top: 30px;
+    left: 25%;
+    background-color: burlywood;
+    border: solid ;
+    font-size: xx-large;
+    font-family: 'Ubuntu', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#word-input {
+    height: 40px;
+    width: 600px;
+    border: solid;
+    padding: 0%;
+    text-align: center;
+    font-size: xx-large;
+    color: mediumslateblue;
+    position: relative;
+    top: 15px;
+    left: 25%;
+}
+
+.correct {
+    color: green;
+}
+.incorrect {
+    color: red;
+}

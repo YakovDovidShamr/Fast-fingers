@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Fingers</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <h1 id="the-main-title">Try your self!</h1>
+
+    <div id="random-words"></div>
+    
+    <input type="text" id="word-input" placeholder="Type the words here..."/>
+     
+    <script>
+        const words = [
+            "apple", "banana", "cherry", "date", "elderberry", 
+            "fig", "grape", "honeydew", "kiwi", "lemon", 
+            "mango", "nectarine", "orange", "papaya", "quince", 
+            "raspberry", "strawberry", "tangerine", "ugli fruit", "vanilla", 
+            "watermelon", "xigua", "yellow passion fruit", "zucchini"
+        ];
+    
+        function getRandomWords(arr, num) {
+            const shuffled = arr.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, num);
+        }
+    
+        const randomWordsArray = getRandomWords(words, 10);
+        const randomWords = randomWordsArray.join(' ');
+        document.getElementById('random-words').textContent = randomWords;
+    
+        document.getElementById('word-input').addEventListener('input', (e) => {
+        const lastChar = e.target.value.slice(-1);
+        if(lastChar === ' ' || lastChar === '') {
+            const typedWords = e.target.value.trim().split(' ');
+            const randomWordsDiv = document.getElementById('random-words');
+            randomWordsDiv.innerHTML = randomWordsArray.map((word, index) => {
+                if (typedWords[index]) {
+                    return `<span class="${typedWords[index] === word ? 'correct' : 'incorrect'}">${word}</span>`;
+                }
+                return word;
+            }).join(' ');
+        }
+    });
+    </script>
+
+</body>
+</html>
