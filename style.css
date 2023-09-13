@@ -1,10 +1,11 @@
+body {
+    background-color: rgb(171, 186, 128);
+}
+
 #the-main-title {
     text-align: center;
-    text-decoration: underline;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: xxx-large;
-        
-    
+    font-family: 'Bungee Spice', cursive;
+    font-size: xxx-large;   
 }
 
 #random-words {
@@ -17,7 +18,7 @@
     background-color: burlywood;
     border: solid ;
     font-size: xx-large;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Kanit', sans-serif;
     text-transform: uppercase;
     text-align: center;
 }
@@ -29,7 +30,8 @@
     padding: 0%;
     text-align: center;
     font-size: xx-large;
-    color: mediumslateblue;
+    font-weight: 200;
+    color: rgb(112, 92, 229);
     position: relative;
     top: 15px;
     left: 25%;
