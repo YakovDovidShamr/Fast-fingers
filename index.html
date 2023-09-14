@@ -23,35 +23,39 @@
     
     <script>
         const words = [
-            "apple", "banana", "cherry", "date", "elderberry", 
-            "fig", "grape", "honeydew", "kiwi", "lemon", 
-            "mango", "nectarine", "orange", "papaya", "quince", 
-            "raspberry", "strawberry", "tangerine", "ugli fruit", "vanilla", 
-            "watermelon", "xigua", "yellow passion fruit", "zucchini"
-        ];
-    
-        function getRandomWords(arr, num) {
-            const shuffled = arr.sort(() => 0.5 - Math.random());
-            return shuffled.slice(0, num);
+    "apple", "banana", "cherry", "date", "elderberry", 
+    "fig", "grape", "honeydew", "kiwi", "lemon", 
+    "mango", "nectarine", "orange", "papaya", "quince", 
+    "raspberry", "strawberry", "tangerine", "ugli fruit", "vanilla", 
+    "watermelon", "xigua", "zucchini", "cranberry"
+];
+
+function getRandomWords(arr, num) {
+    const shuffled = arr.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, num);
+}
+
+const randomWordsArray = getRandomWords(words, 4);
+const randomWords = randomWordsArray.join(' ');
+document.getElementById('random-words').textContent = randomWords;
+
+document.getElementById('word-input').addEventListener('input', (e) => {
+    const lastChar = e.target.value.slice(-1);
+    if(lastChar === ' ' || lastChar === '') {
+        const typedWords = e.target.value.trim().split(' ');
+        const randomWordsDiv = document.getElementById('random-words');
+        randomWordsDiv.innerHTML = randomWordsArray.map((word, index) => {
+            if (typedWords[index]) {
+                return `<span class="${typedWords[index] === word ? 'correct' : 'incorrect'}">${word}</span>`;
+            }
+            return word;
+        }).join(' ');
+
+        if (typedWords[typedWords.length - 1] === randomWordsArray[typedWords.length - 1]) {
+            e.target.value = '';
         }
-    
-        const randomWordsArray = getRandomWords(words, 4);
-        const randomWords = randomWordsArray.join(' ');
-        document.getElementById('random-words').textContent = randomWords;
-    
-        document.getElementById('word-input').addEventListener('input', (e) => {
-        const lastChar = e.target.value.slice(-1);
-        if(lastChar === ' ' || lastChar === '') {
-            const typedWords = e.target.value.trim().split(' ');
-            const randomWordsDiv = document.getElementById('random-words');
-            randomWordsDiv.innerHTML = randomWordsArray.map((word, index) => {
-                if (typedWords[index]) {
-                    return `<span class="${typedWords[index] === word ? 'correct' : 'incorrect'}">${word}</span>`;
-                }
-                return word;
-            }).join(' ');
-        }
-    });
+    }
+});
     </script>
 
 </body>
